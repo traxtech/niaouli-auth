@@ -100,6 +100,12 @@ public interface AuthSystem {
 
     Collection<Group> findGroups() throws AppException;
 
+    Collection<String> findGroupPersons(String sysName) throws AppException;
+
+    void attachGroupMember(String groupSysName, String personSysName) throws AppException;
+
+    void detachGroupMember(String groupSysName, String personSysName) throws AppException;
+
     boolean canCreateOrUpdateGroup();
 
     void createGroup(Group group) throws AppException;
@@ -109,6 +115,8 @@ public interface AuthSystem {
     OrgUnit loadOrgUnit(String name) throws AppException;
 
     Collection<OrgUnit> findOrgUnits() throws AppException;
+
+    Collection<String> findOrgUnitPersons(String name) throws AppException;
 
     boolean canCreateOrUpdateOrgUnit();
 
