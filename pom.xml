@@ -39,6 +39,11 @@
             <artifactId>exception</artifactId>
             <version>0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.niaouli</groupId>
+            <artifactId>validation</artifactId>
+            <version>0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <reporting>
         <plugins>

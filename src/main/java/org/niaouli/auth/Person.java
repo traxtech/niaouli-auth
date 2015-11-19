@@ -24,88 +24,69 @@ import java.io.Serializable;
  */
 public class Person implements Serializable {
 
-    private String sysName;
-    private String description;
-    private String fullName;
+    private final String sysName;
+    private final String description;
+    private final String fullName;
     // First name
-    private String givenName;
+    private final String givenName;
     // Last name
-    private String surname;
-    private String email;
-    private String telephone;
-    private String mobile;
-    private String orgUnitName;
+    private final String surname;
+    private final String email;
+    private final String telephone;
+    private final String mobile;
+    private final String orgUnitName;
 
-    public String getDescription() {
+    protected Person(final PersonBuilder pBuilder) {
+        sysName = pBuilder.getSysName();
+        description = pBuilder.getDescription();
+        fullName = pBuilder.getFullName();
+        givenName = pBuilder.getGivenName();
+        surname = pBuilder.getSurname();
+        email = pBuilder.getEmail();
+        telephone = pBuilder.getTelephone();
+        mobile = pBuilder.getMobile();
+        orgUnitName = pBuilder.getOrgUnitName();
+    }
+
+    public final String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getFullName() {
+    public final String getFullName() {
         return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getGivenName() {
+    public final String getGivenName() {
         return givenName;
     }
 
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
-    public String getSurname() {
+    public final String getSurname() {
         return surname;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getEmail() {
+    public final String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getTelephone() {
+    public final String getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
-
-    public String getMobile() {
+    public final String getMobile() {
         return mobile;
     }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getSysName() {
+    public final String getSysName() {
         return sysName;
     }
 
-    public void setSysName(String sysName) {
-        this.sysName = sysName;
-    }
-
-    public String getOrgUnitName() {
+    public final String getOrgUnitName() {
         return orgUnitName;
     }
 
-    public void setOrgUnitName(String orgUnitName) {
-        this.orgUnitName = orgUnitName;
+    @Override
+    public final String toString() {
+        return "Person{" + "sysName=" + sysName + ", description=" + description + ", fullName=" + fullName + ", givenName=" + givenName + ", surname=" + surname + ", email=" + email + ", telephone=" + telephone + ", mobile=" + mobile + ", orgUnitName=" + orgUnitName + '}';
     }
 
 }

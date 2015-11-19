@@ -24,23 +24,24 @@ import java.io.Serializable;
  */
 public class Group implements Serializable {
 
-    private String sysName;
-    private String description;
+    private final String sysName;
+    private final String description;
 
-    public String getSysName() {
+    protected Group(final GroupBuilder pBuilder) {
+        sysName = pBuilder.getSysName();
+        description = pBuilder.getDescription();
+    }
+
+    public final String getSysName() {
         return sysName;
     }
 
-    public void setSysName(String sysName) {
-        this.sysName = sysName;
-    }
-
-    public String getDescription() {
+    public final String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    @Override
+    public final String toString() {
+        return "Group{" + "sysName=" + sysName + ", description=" + description + '}';
     }
-
 }

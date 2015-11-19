@@ -24,32 +24,31 @@ import java.io.Serializable;
  */
 public class OrgUnit implements Serializable {
 
-    private String name;
-    private String description;
-    private String parentName;
+    private final String name;
+    private final String description;
+    private final String parentName;
 
-    public String getName() {
+    protected OrgUnit(final OrgUnitBuilder pBuilder) {
+        name = pBuilder.getName();
+        description = pBuilder.getDescription();
+        parentName = pBuilder.getParentName();
+    }
+
+    public final String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
+    public final String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getParentName() {
+    public final String getParentName() {
         return parentName;
     }
 
-    public void setParentName(String parentName) {
-        this.parentName = parentName;
+    @Override
+    public final String toString() {
+        return "OrgUnit{" + "name=" + name + ", description=" + description + ", parentName=" + parentName + '}';
     }
 
 }
