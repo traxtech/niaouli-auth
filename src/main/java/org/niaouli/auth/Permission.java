@@ -16,6 +16,7 @@
  */
 package org.niaouli.auth;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,28 +25,28 @@ import java.util.Set;
  *
  * @author Arnaud Rolly <github@niaouli.org>
  */
-public class Permission {
+public class Permission implements Serializable {
 
-    private final Set<String> allowedPersons;
-    private final Set<String> allowedGroups;
-    private final Set<String> allowedOrgUnits;
+  private final Set<String> allowedPersons;
+  private final Set<String> allowedGroups;
+  private final Set<String> allowedOrgUnits;
 
-    protected Permission(final PermissionBuilder pBuilder) {
-        allowedPersons = new HashSet<String>(pBuilder.getAllowedPersons());
-        allowedGroups = new HashSet<String>(pBuilder.getAllowedGroups());
-        allowedOrgUnits = new HashSet<String>(pBuilder.getAllowedOrgUnits());
-    }
+  protected Permission(final PermissionBuilder pBuilder) {
+    allowedPersons = new HashSet<String>(pBuilder.getAllowedPersons());
+    allowedGroups = new HashSet<String>(pBuilder.getAllowedGroups());
+    allowedOrgUnits = new HashSet<String>(pBuilder.getAllowedOrgUnits());
+  }
 
-    public Set<String> getAllowedPersons() {
-        return Collections.unmodifiableSet(allowedPersons);
-    }
+  public Set<String> getAllowedPersons() {
+    return Collections.unmodifiableSet(allowedPersons);
+  }
 
-    public Set<String> getAllowedGroups() {
-        return Collections.unmodifiableSet(allowedGroups);
-    }
+  public Set<String> getAllowedGroups() {
+    return Collections.unmodifiableSet(allowedGroups);
+  }
 
-    public Set<String> getAllowedOrgUnits() {
-        return Collections.unmodifiableSet(allowedOrgUnits);
-    }
+  public Set<String> getAllowedOrgUnits() {
+    return Collections.unmodifiableSet(allowedOrgUnits);
+  }
 
 }

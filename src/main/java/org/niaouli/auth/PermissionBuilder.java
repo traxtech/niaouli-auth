@@ -16,6 +16,7 @@
  */
 package org.niaouli.auth;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 import org.niaouli.exception.AppException;
@@ -25,65 +26,65 @@ import org.niaouli.exception.AppException;
  *
  * @author Arnaud Rolly <github@niaouli.org>
  */
-public class PermissionBuilder {
+public class PermissionBuilder implements Serializable {
 
-    /**
-     * Allowed persons.
-     */
-    private Set<String> allowedPersons = new HashSet<String>();
-    /**
-     * Allowed groups.
-     */
-    private Set<String> allowedGroups = new HashSet<String>();
-    /**
-     * Allowed organizational units.
-     */
-    private Set<String> allowedOrgUnits = new HashSet<String>();
+  /**
+   * Allowed persons.
+   */
+  private Set<String> allowedPersons = new HashSet<String>();
+  /**
+   * Allowed groups.
+   */
+  private Set<String> allowedGroups = new HashSet<String>();
+  /**
+   * Allowed organizational units.
+   */
+  private Set<String> allowedOrgUnits = new HashSet<String>();
 
-    /**
-     * Build the permission.
-     *
-     * @return New permission.
-     * @throws AppException On invalid data.
-     */
-    public final Permission build() throws AppException {
-        return new Permission(this);
+  /**
+   * Build the permission.
+   *
+   * @return New permission.
+   * @throws AppException On invalid data.
+   */
+  public final Permission build() throws AppException {
+    return new Permission(this);
+  }
+
+  public final Set<String> getAllowedPersons() {
+    return allowedPersons;
+  }
+
+  public final void setAllowedPersons(final Set<String> pAllowedPersons) {
+    if (pAllowedPersons == null) {
+      allowedPersons = null;
+    } else {
+      allowedPersons = new HashSet<String>(pAllowedPersons);
     }
+  }
 
-    public final Set<String> getAllowedPersons() {
-        return allowedPersons;
-    }
+  public final Set<String> getAllowedGroups() {
+    return allowedGroups;
+  }
 
-    public final void setAllowedPersons(final Set<String> pAllowedPersons) {
-        if (pAllowedPersons == null) {
-            allowedPersons = null;
-        } else {
-            allowedPersons = new HashSet<String>(pAllowedPersons);
-        }
+  public final void setAllowedGroups(final Set<String> pAllowedGroups) {
+    if (pAllowedGroups == null) {
+      allowedGroups = null;
+    } else {
+      allowedGroups = new HashSet<String>(pAllowedGroups);
     }
+  }
 
-    public final Set<String> getAllowedGroups() {
-        return allowedGroups;
-    }
+  public final Set<String> getAllowedOrgUnits() {
+    return allowedOrgUnits;
+  }
 
-    public final void setAllowedGroups(final Set<String> pAllowedGroups) {
-        if (pAllowedGroups == null) {
-            allowedGroups = null;
-        } else {
-            allowedGroups = new HashSet<String>(pAllowedGroups);
-        }
+  public final void setAllowedOrgUnits(final Set<String> pAllowedOrgUnits) {
+    if (pAllowedOrgUnits == null) {
+      allowedOrgUnits = null;
+    } else {
+      allowedOrgUnits = new HashSet<String>(pAllowedOrgUnits);
     }
-
-    public final Set<String> getAllowedOrgUnits() {
-        return allowedOrgUnits;
-    }
-
-    public final void setAllowedOrgUnits(final Set<String> pAllowedOrgUnits) {
-        if (pAllowedOrgUnits == null) {
-            allowedOrgUnits = null;
-        } else {
-            allowedOrgUnits = new HashSet<String>(pAllowedOrgUnits);
-        }
-    }
+  }
 
 }
