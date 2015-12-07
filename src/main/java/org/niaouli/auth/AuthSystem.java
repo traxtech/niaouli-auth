@@ -27,100 +27,100 @@ import org.niaouli.exception.AppException;
  */
 public interface AuthSystem {
 
-    /**
-     * Configure the access to the authentication system.
-     *
-     * @param props key values map, dependant on the implementation.
-     * @throws AppException On interal error.
-     */
-    void configure(Map<String, String> props) throws AppException;
+  /**
+   * Configure the access to the authentication system.
+   *
+   * @param props key values map, dependant on the implementation.
+   * @throws AppException On interal error.
+   */
+  void configure(Map<String, String> props) throws AppException;
 
-    /**
-     * Checks that the access to the authentication system is healthy.
-     *
-     * @return Health check result.
-     */
-    boolean checkHealth();
+  /**
+   * Checks that the access to the authentication system is healthy.
+   *
+   * @return Health check result.
+   */
+  boolean checkHealth();
 
-    /**
-     * Verifies the credentials of a user.
-     *
-     * @param sysName System name (login) of the user.
-     * @param password Corresponding password.
-     * @return Credentials validity.
-     * @throws AppException On internal error.
-     */
-    boolean checkCredentials(String sysName, char[] password) throws AppException;
+  /**
+   * Verifies the credentials of a user.
+   *
+   * @param sysName System name (login) of the user.
+   * @param password Corresponding password.
+   * @return Credentials validity.
+   * @throws AppException On internal error.
+   */
+  boolean checkCredentials(String sysName, String password) throws AppException;
 
-    /**
-     * Load a person given its system name.
-     *
-     * @param sysName System name of the person to load.
-     * @return The person corresponding to the system name.
-     * @throws AppException On internal error, of if the person is not found
-     * (error with key 'authSystem.user.notFound').
-     */
-    Person loadPerson(String sysName) throws AppException;
+  /**
+   * Load a person given its system name.
+   *
+   * @param sysName System name of the person to load.
+   * @return The person corresponding to the system name.
+   * @throws AppException On internal error, of if the person is not found
+   * (error with key 'authSystem.user.notFound').
+   */
+  Person loadPerson(String sysName) throws AppException;
 
-    /**
-     * Find all the persons.
-     *
-     * @return All the persons.
-     * @throws AppException On internal error.
-     */
-    Collection<Person> findPersons() throws AppException;
+  /**
+   * Find all the persons.
+   *
+   * @return All the persons.
+   * @throws AppException On internal error.
+   */
+  Collection<Person> findPersons() throws AppException;
 
-    /**
-     * Checks if the authentication system can create or update a person.
-     *
-     * @return Check result.
-     */
-    boolean canCreateOrUpdatePerson();
+  /**
+   * Checks if the authentication system can create or update a person.
+   *
+   * @return Check result.
+   */
+  boolean canCreateOrUpdatePerson();
 
-    /**
-     * Checks if the authentication system can update a person password.
-     *
-     * @return Check result.
-     */
-    boolean canUpdatePassword();
+  /**
+   * Checks if the authentication system can update a person password.
+   *
+   * @return Check result.
+   */
+  boolean canUpdatePassword();
 
-    /**
-     * Creates a new person.
-     *
-     * @param person Person to create.
-     * @throws AppException On internal error
-     */
-    void createPerson(Person person) throws AppException;
+  /**
+   * Creates a new person.
+   *
+   * @param person Person to create.
+   * @throws AppException On internal error
+   */
+  void createPerson(Person person) throws AppException;
 
-    void updatePerson(Person person) throws AppException;
+  void updatePerson(Person person) throws AppException;
 
-    void updatePersonPassword(String sysName, char[] password) throws AppException;
+  void updatePersonPassword(String sysName, String password) throws AppException;
 
-    Group loadGroup(String sysName) throws AppException;
+  Group loadGroup(String sysName) throws AppException;
 
-    Collection<Group> findGroups() throws AppException;
+  Collection<Group> findGroups() throws AppException;
 
-    Collection<String> findGroupPersons(String sysName) throws AppException;
+  Collection<String> findGroupPersons(String sysName) throws AppException;
 
-    void attachGroupMember(String groupSysName, String personSysName) throws AppException;
+  void attachGroupMember(String groupSysName, String personSysName) throws AppException;
 
-    void detachGroupMember(String groupSysName, String personSysName) throws AppException;
+  void detachGroupMember(String groupSysName, String personSysName) throws AppException;
 
-    boolean canCreateOrUpdateGroup();
+  boolean canCreateOrUpdateGroup();
 
-    void createGroup(Group group) throws AppException;
+  void createGroup(Group group) throws AppException;
 
-    void updateGroup(Group group) throws AppException;
+  void updateGroup(Group group) throws AppException;
 
-    OrgUnit loadOrgUnit(String name) throws AppException;
+  OrgUnit loadOrgUnit(String name) throws AppException;
 
-    Collection<OrgUnit> findOrgUnits() throws AppException;
+  Collection<OrgUnit> findOrgUnits() throws AppException;
 
-    Collection<String> findOrgUnitPersons(String name) throws AppException;
+  Collection<String> findOrgUnitPersons(String name) throws AppException;
 
-    boolean canCreateOrUpdateOrgUnit();
+  boolean canCreateOrUpdateOrgUnit();
 
-    void createOrgUnit(OrgUnit orgUnit) throws AppException;
+  void createOrgUnit(OrgUnit orgUnit) throws AppException;
 
-    void updateOrgUnit(OrgUnit orgUnit) throws AppException;
+  void updateOrgUnit(OrgUnit orgUnit) throws AppException;
 }
